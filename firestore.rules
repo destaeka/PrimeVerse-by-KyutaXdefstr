@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  match /artifacts/{appId}/public/data/stock_items/{id} { allow read,write: if false; }\n  match /artifacts/{appId}/public/data/products/{id} { allow read: if true; allow write: if false; }
+  match /artifacts/{appId}/public/data/site_config/{id} { allow read: if true; allow write: if false; }
+  match /artifacts/{appId}/public/data/promo_codes/{id} { allow read: if true; allow write: if false; }
+  match /artifacts/{appId}/public/data/registered_users/{uid} { allow read,create,update: if request.auth != null && request.auth.uid == uid; allow delete:false; }
+  match /artifacts/{appId}/public/data/orders/{id} { allow read,write:false; }
+  match /{document=**} { allow read,write:false; }
+ }}
