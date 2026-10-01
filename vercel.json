@@ -1,1 +1,13 @@
-{"cleanUrls":true}
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/admin/:action",
+      "destination": "/api/admin-router?action=:action"
+    },
+    {
+      "source": "/api/api_pakasir/:action",
+      "destination": "/api/pakasir-router?action=:action"
+    }
+  ]
+}
