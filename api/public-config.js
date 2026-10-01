@@ -1,0 +1,1 @@
+export default function handler(req,res){try{res.setHeader("Cache-Control","public,max-age=300");res.json({appId:process.env.FIREBASE_APP_ID||"digistore-v3",firebaseConfig:JSON.parse(process.env.FIREBASE_WEB_CONFIG_JSON||"{}")})}catch(e){res.status(500).json({error:"Firebase web config invalid"})}}
